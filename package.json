@@ -12,8 +12,15 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.4.0",
+    "@ant-design/pro-components": "^2.7.14",
+    "@ant-design/pro-layout": "^7.19.11",
+    "antd": "^5.20.0",
+    "axios": "^1.7.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "sass": "^1.77.8"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -33,11 +40,11 @@
     "vite": "^5.3.4"
   },
   "lint-staged": {
-        "src/**/*.{ts,tsx}": [
-            "eslint --fix"
-        ],
-        "src/**/*.{ts,tsx,css,json,scss,css}": [
-            "prettier --write"
-        ]
-    }
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,tsx,css,json,scss,css}": [
+      "prettier --write"
+    ]
+  }
 }
