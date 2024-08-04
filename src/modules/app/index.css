@@ -1,0 +1,14 @@
+.anticon-menu {
+    cursor: pointer;
+}
+
+.ant-pro-sider-collapsed-button {
+    color: black;
+    background-color: gainsboro;
+}
+
+.ant-pro-page-container
+    .ant-pro-page-container-warp-page-header
+    .ant-page-header-heading {
+    display: none;
+}
