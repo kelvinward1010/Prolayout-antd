@@ -11,8 +11,14 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { defaultMenus } from "./menus";
 import styles from "./Layout.module.scss";
 import "./index.css";
-import { GithubOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar } from "antd";
+import {
+    GithubFilled,
+    GithubOutlined,
+    InfoCircleFilled,
+    LogoutOutlined,
+    QuestionCircleFilled,
+} from "@ant-design/icons";
+import { Dropdown, Input } from "antd";
 
 export type LayoutProps = {
     children?: React.ReactNode;
@@ -58,7 +64,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
     const FormHeader = () => {
         return (
             <div className={styles.containerHeader}>
-                <Avatar icon={<UserOutlined />} />
+                <Input.Search className={styles.search} />
             </div>
         );
     };
@@ -85,6 +91,37 @@ export const Layout: React.FC<LayoutProps> = (props) => {
             }}
             menu={{
                 request: async () => loopMenuItem(defaultMenus),
+            }}
+            avatarProps={{
+                src: "https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg",
+                size: "small",
+                title: "Kaito Kid",
+                render: (_, dom) => {
+                    return (
+                        <Dropdown
+                            menu={{
+                                items: [
+                                    {
+                                        key: "logout",
+                                        icon: <LogoutOutlined />,
+                                        label: "Sign out",
+                                    },
+                                ],
+                            }}
+                        >
+                            {dom}
+                        </Dropdown>
+                    );
+                },
+            }}
+            actionsRender={(props) => {
+                if (props.isMobile) return [];
+                if (typeof window === "undefined") return [];
+                return [
+                    <InfoCircleFilled key="InfoCircleFilled" />,
+                    <QuestionCircleFilled key="QuestionCircleFilled" />,
+                    <GithubFilled key="GithubFilled" />,
+                ];
             }}
             breadcrumbRender={(routers = []) => [
                 {
